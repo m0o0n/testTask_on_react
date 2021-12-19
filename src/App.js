@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {BrowserRouter, Route, Router, Routes, Switch} from "react-router-dom"
+import React, {useEffect} from 'react';
+import Header from './Components/Header/Header';
+import Home from './Components/Home/Home';
+import {setDataThunk} from './Redux/ContentReducer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { connect } from 'react-redux';
+import {getData} from './API/api.js'
+// import { compose } from 'redux';
+// import RedirectHoc from './HOC/RedirectHoc';
+
+
+
+
+let App =(props)=> {
+
+  
+ 
+   
+    return(
+      <div className='App'>
+        <Header/>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/Home' element={<Home/>}/>
+          </Routes>
+      </div>
+              
+          )}
+
+let mapStateToProps =(state)=>{
+  return{
+    state: state,
+  }
 }
-
-export default App;
+export default connect(mapStateToProps, {setDataThunk})(App);
