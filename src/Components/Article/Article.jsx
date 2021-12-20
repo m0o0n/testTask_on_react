@@ -1,16 +1,27 @@
 import React, { useEffect } from "react"
-import { useParams, useSearchParams } from "react-router-dom"
+import { connect } from "react-redux"
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom"
 
 
 let Article =(props)=>{
 let param = useParams()
-let serch = useSearchParams()
-console.log(param, serch)
-useEffect(()=>{
-    console.log("say hello")
-}, [])
+let navigate = useNavigate()
+
+// useEffect(()=>{
+//     console.log("say hello")
+// }, [])
+let goBack =()=>{navigate(-1)}
     return(
-    <div>Article</div>
+    <div>
+        <button onClick={goBack}>goBack</button> 
+        Article
+        </div>
     )
 }
-export default Article
+
+const mapStateToProps=(state)=>{
+    return{
+        state: state
+    }
+}
+export default connect(mapStateToProps)(Article) 
