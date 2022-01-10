@@ -1,7 +1,8 @@
 import React from "react";
-import BarMenu from "./BarMenu/BarMenu";
+//@ts-ignore
+import BarMenu from "./BarMenu/BarMenu.tsx";
 
-const Header = (props) => {
+const Header: React.FC = (props) => {
   return (
     <div>
       <div className="wrapper">
@@ -9,11 +10,7 @@ const Header = (props) => {
         <div className="wrapper__search_pull">
           <i id="search_pull__reset-icon" className="fas fa-times"></i>
           <i id="search_pull__search-icon" className="fas fa-search"></i>
-          <input
-            id="search_pull"
-            type="text"
-            placeholder="Type something to start search"
-          />
+          <input id="search_pull" type="text" placeholder="Type something to start search" />
         </div>
         <BarMenu />
       </div>

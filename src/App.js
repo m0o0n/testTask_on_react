@@ -2,14 +2,14 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 
-import { fetchPost } from "./Redux/ContentReducer";
+import { fetchPost } from "./Redux/ContentReducer.ts";
 
 import { connect } from "react-redux";
 
-import Footer from "./Components/Footer/Footer";
-import Article from "./Components/Article/Article";
-import Home from "./Components/Home/Home";
-import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer.tsx";
+import Article from "./Components/Article/Article.tsx";
+import Home from "./Components/Home/Home.tsx";
+import Header from "./Components/Header/Header.tsx";
 // import { compose } from 'redux';
 // import RedirectHoc from './HOC/RedirectHoc';
 

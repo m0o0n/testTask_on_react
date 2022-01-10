@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const BarMenu = (props) => {
+const BarMenu: React.FC = (props) => {
   const [MenuCodition, setMenuCondition] = useState(false);
 
   return (

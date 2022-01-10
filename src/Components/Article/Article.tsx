@@ -1,8 +1,12 @@
+import { type } from "os";
 import React from "react";
 import { connect } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-
-const Article = (props) => {
+import { AppStateType } from "../../Redux/redux-store";
+type PropType ={
+  state: AppStateType
+}
+const Article: React.FC<PropType> = (props) => {
   const param = useParams();
   const urlParamValues = Object.values(param);
   const navigate = useNavigate();
@@ -18,7 +22,7 @@ const Article = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType ) => {
   return {
     state: state,
   };

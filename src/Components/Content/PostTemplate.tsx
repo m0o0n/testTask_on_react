@@ -1,7 +1,15 @@
+import { type } from "os";
 import React from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-const PostTepmpalte = (props) => {
+type PropType = {
+  imageSource: string,
+  h3Article: string,
+  shortText: string,
+  date: string,
+  link: string,
+}
+
+const PostTepmpalte: React.FC<PropType> = (props) => {
   return (
     <div className="content_greed__post_container">
       <div className="content_greed__post">
@@ -22,12 +30,6 @@ const PostTepmpalte = (props) => {
     </div>
   );
 };
-PostTepmpalte.propTypes = {
-  imageSource: PropTypes.string.isRequired,
-  h3Article: PropTypes.string.isRequired,
-  shortText: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-};
+
 
 export default PostTepmpalte;
