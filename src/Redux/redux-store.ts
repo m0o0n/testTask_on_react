@@ -6,8 +6,8 @@ import thunk from "redux-thunk";
 const reducers = combineReducers({
   ContentReducer: ContentReducer,
 });
-type rootType = typeof reducers
-export type AppStateType = ReturnType<rootType>
+type rootType = typeof reducers;
+export type AppStateType = ReturnType<rootType>;
 //@ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

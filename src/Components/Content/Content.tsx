@@ -8,13 +8,12 @@ import PropTypes from "prop-types";
 import { AppStateType } from "../../Redux/redux-store";
 import { DataType } from "../../Types/ContentReducerDataTypes";
 
-
 type PropType = {
-  state: AppStateType
-  Fetching: boolean
-  Data: DataType
-  fetchPost: Function
-}
+  state: AppStateType;
+  Fetching: boolean;
+  Data: DataType;
+  fetchPost: Function;
+};
 const Content: React.FC<PropType> = (props) => {
   useEffect(() => {
     props.fetchPost();
@@ -57,7 +56,7 @@ const mapStateToProps = (state: AppStateType) => {
     // @ts-ignore
     Fetching: state.ContentReducer.Fetching,
     // @ts-ignore
-    Data: state.ContentReducer.data
+    Data: state.ContentReducer.data,
   };
 };
 export default connect(mapStateToProps, { fetchPost })(Content);

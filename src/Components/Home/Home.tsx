@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+//@ts-ignore
 import Content from "../Content/Content.tsx";
 
 const Home: React.FC = (props) => {

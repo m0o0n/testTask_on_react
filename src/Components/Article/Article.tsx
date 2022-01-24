@@ -3,9 +3,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { AppStateType } from "../../Redux/redux-store";
-type PropType ={
-  state: AppStateType
-}
+type PropType = {
+  state: AppStateType;
+};
 const Article: React.FC<PropType> = (props) => {
   const param = useParams();
   const urlParamValues = Object.values(param);
@@ -22,7 +22,7 @@ const Article: React.FC<PropType> = (props) => {
   );
 };
 
-const mapStateToProps = (state: AppStateType ) => {
+const mapStateToProps = (state: AppStateType) => {
   return {
     state: state,
   };

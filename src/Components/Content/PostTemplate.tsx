@@ -2,12 +2,12 @@ import { type } from "os";
 import React from "react";
 import { Link } from "react-router-dom";
 type PropType = {
-  imageSource: string,
-  h3Article: string,
-  shortText: string,
-  date: string,
-  link: string,
-}
+  imageSource: string;
+  h3Article: string;
+  shortText: string;
+  date: string;
+  link: string;
+};
 
 const PostTepmpalte: React.FC<PropType> = (props) => {
   return (
@@ -30,6 +30,5 @@ const PostTepmpalte: React.FC<PropType> = (props) => {
     </div>
   );
 };
-
 
 export default PostTepmpalte;
