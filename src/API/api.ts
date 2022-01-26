@@ -1,4 +1,4 @@
-import { DataType } from './../Types/ContentReducerDataTypes';
+import { DataType } from "./../Types/ContentReducerDataTypes";
 import axios from "axios";
 
 const instance = axios.create({
@@ -7,15 +7,15 @@ const instance = axios.create({
 });
 
 type axiosGetDataType = {
-  config: any
-  data: {response: DataType}
-  headers: any
-  request: any
-  status: number
-  statusText: string
-}
+  config: any;
+  data: { response: DataType };
+  headers: any;
+  request: any;
+  status: number;
+  statusText: string;
+};
 export const getData = async () => {
-  const response = await instance.get<axiosGetDataType>('');
+  const response = await instance.get<axiosGetDataType>("");
   console.log(response);
   return response.data;
 };

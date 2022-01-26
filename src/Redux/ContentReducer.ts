@@ -1,13 +1,14 @@
-
+import { type } from "os";
 
 import { any } from "prop-types";
 import { number } from "prop-types";
-import { Dispatch } from 'react';
-import { ThunkAction } from 'redux-thunk';
+import { Dispatch } from "react";
+import { ThunkAction } from "redux-thunk";
 //@ts-ignore
 import { getData } from "../API/api.ts";
-import { dataResultType, DataType, initialStateType } from "../Types/ContentReducerDataTypes";
-import { AppStateType } from './redux-store';
+//@ts-ignore
+import { dataResultType, DataType, initialStateType } from "../Types/ContentReducerDataTypes.ts";
+import { AppStateType, InferActionTypes } from "./redux-store";
 
 const initialState: initialStateType = {
   data: null,
@@ -30,19 +31,22 @@ const ContentReducer = (state = initialState, action: ActionTypes): initialState
   }
 };
 
-
-
-type setDataType = {
-  type: "getData";
-  data: DataType;
+// type setDataType = {
+//   type: "getData";
+//   data: DataType;
+// };
+// type fetchingType = {
+//   type: "Fetching";
+//   fetching: boolean;
+// };
+// const setDataAC = (data: DataType): setDataType => ({ type: "getData", data });
+// const fetchingAC = (fetching: boolean): fetchingType => ({ type: "Fetching", fetching });
+type dispatchType = Dispatch<ActionTypes>;
+type ActionTypes = InferActionTypes<typeof actions>;
+const actions = {
+  setDataAC: (data: DataType) => ({ type: "getData", data } as const),
+  fetchingAC: (fetching: boolean) => ({ type: "Fetching", fetching } as const),
 };
-const setDataAC = (data: DataType): setDataType => ({ type: "getData", data });
-
-type fetchingType = {
-  type: "Fetching";
-  fetching: boolean;
-};
-const fetchingAC = (fetching: boolean): fetchingType => ({ type: "Fetching", fetching });
 
 const sortByDate = (obj: Array<dataResultType>) => {
   const SortDate = (a: any, b: any) => {
@@ -51,15 +55,13 @@ const sortByDate = (obj: Array<dataResultType>) => {
   return obj.sort(SortDate);
 };
 
-// type dispatchType = Dispatch<ActionTypes>
-type ActionTypes = setDataType | fetchingType;
-type thunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionTypes>
+type thunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionTypes>;
 export const fetchPost = (): thunkType => {
   return async (dispatch) => {
-    dispatch(fetchingAC(true));
+    dispatch(actions.fetchingAC(true));
     const data = await getData();
-    dispatch(setDataAC(data.response));
-    dispatch(fetchingAC(false));
+    dispatch(actions.setDataAC(data.response));
+    dispatch(actions.fetchingAC(false));
   };
 };
 
